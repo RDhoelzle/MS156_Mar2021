@@ -66,3 +66,4 @@ env.mum <- env.all[env.all$Host == "Mum",]
 otu.pup <- otu.all[env.all$Host == "Pup",]
 otu.dad <- otu.all[env.all$Host == "Dad",]
 otu.mum <- otu.all[env.all$Host == "Mum",]
+
