@@ -2,9 +2,6 @@
 
 source("Functions.R")
 
-## Define color palette
-pal <- colorRampPalette(c("white","black"))(100)
-
 ## Dad samples
   # Transpose otu table, set columns to label, rows to taxonomy, and order by taxonomy
   otu.dad.heatmap <- otu.dad
@@ -46,8 +43,8 @@ pal <- colorRampPalette(c("white","black"))(100)
   # Plot otu heatmap
   heatmap.mum <- pheatmap(sqrt(otu.mum.heatmap), color = pal, border_color = "black",
                           cluster_rows = F, cluster_cols = F, fontsize = 10,
-                          gaps_col = c(6,8,14,18),
-                          gaps_row = c(2,7,8,32))
+                          gaps_col = c(6,12,16),
+                          gaps_row = c(2,7,8))
   
 ## pup samples
   # Transpose otu table, set columns to label, rows to taxonomy, and order by taxonomy
@@ -68,6 +65,28 @@ pal <- colorRampPalette(c("white","black"))(100)
   # Plot otu heatmap
   heatmap.pup <- pheatmap(sqrt(otu.pup.heatmap), color = pal, border_color = "black",
                           cluster_rows = F, cluster_cols = F, fontsize = 10,
-                          gaps_col = c(6,13,15,18,24,30,36,41,46,51),
+                          gaps_col = c(6,13,15,18,24,30,36,41,46,51,53),
                           gaps_row = c(10,11,31,35))
+  
+## pup control samples
+  # Transpose otu table, set columns to label, rows to taxonomy, and order by taxonomy
+  otu.pup.c.heatmap <- otu.pup.cont
+  row.names(otu.pup.c.heatmap) <- env.pup.cont$SampleLabel
+  otu.pup.c.heatmap <- as.data.frame(t(otu.pup.c.heatmap))
+  row.names(otu.pup.c.heatmap) == row.names(taxonomy)
+  row.names(otu.pup.c.heatmap) <- taxonomy$OTU.tax
+  otu.pup.c.heatmap$tax <- taxonomy$taxonomy
+  otu.pup.c.heatmap <- otu.pup.c.heatmap[order(otu.pup.c.heatmap$tax),]
+  otu.pup.c.heatmap <- subset(otu.pup.c.heatmap, select = -tax)
+  
+  # Remove low count otus
+  nrow(otu.pup.c.heatmap)
+  otu.pup.c.heatmap.f <- otu.pup.c.heatmap[which(apply(otu.pup.c.heatmap,1,max)>=0.03),]
+  nrow(otu.pup.c.heatmap.f)
+  
+  # Plot otu heatmap
+  heatmap.pup.c <- pheatmap(sqrt(otu.pup.c.heatmap.f), color = pal, border_color = "black",
+                          cluster_rows = F, cluster_cols = F, fontsize = 10,
+                          gaps_col = c(6, 10, 15, 21, 23),
+                          gaps_row = c(8, 9, 28))
   

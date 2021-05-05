@@ -2,112 +2,123 @@
 
 source("Functions.R")
 
-# Q1: Is the MB sig dif CFD/HFD Sgp130FC/Mixed Dads?
-anova(lm(Sobs ~ factor(Group), data=env1))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env1)
-anova(lm(Chao1 ~ factor(Group), data=env1))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env1)
-anova(lm(Shan ~ factor(Group), data=env1))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env1)
-anova(lm(PD ~ factor(Group), data=env1))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env1)
+# Q1: Is the MB* sig. diff. between WT female (TM-1) and Sgp130 female (TM-2) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabelLabel), data=env1))
+bargraph.CI(x.factor = GroupLabelLabel, response = Sobs, legend=TRUE, data=env1)
+anova(lm(Chao1 ~ factor(GroupLabelLabel), data=env1))
+bargraph.CI(x.factor = GroupLabelLabel, response = Chao1, legend=TRUE, data=env1)
+anova(lm(Shan ~ factor(GroupLabelLabel), data=env1))
+bargraph.CI(x.factor = GroupLabelLabel, response = Shan, legend=TRUE, data=env1)
+anova(lm(PD ~ factor(GroupLabelLabel), data=env1))
+bargraph.CI(x.factor = GroupLabelLabel, response = PD, legend=TRUE, data=env1)
 # all no sig dif
-summary(aov(env1[,25] ~ env1$Group))
-cld(lsmeans(aov(env1[,25] ~ Group, data= env1), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env1[,28] ~ env1$GroupLabelLabel))
+cld(lsmeans(aov(env1[,28] ~ GroupLabelLabel, data= env1), ~ GroupLabelLabel, Letters = letters, adjust = "tukey"))
 
 
-# Q2: Is the MB sig dif CFD/HFD Sgp130FC/Mixed Mums?
-anova(lm(Sobs ~ factor(Group), data=env2))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env2)
-anova(lm(Chao1 ~ factor(Group), data=env2))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env2)
-anova(lm(Shan ~ factor(Group), data=env2))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env2)
-anova(lm(PD ~ factor(Group), data=env2))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env2)
+# Q2: Is the MB* sig. diff. between Sgp130 female (TM-2) and Sgp130 male (TM-2) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabelLabel), data=env2))
+bargraph.CI(x.factor = GroupLabelLabel, response = Sobs, legend=TRUE, data=env2)
+anova(lm(Chao1 ~ factor(GroupLabelLabel), data=env2))
+bargraph.CI(x.factor = GroupLabelLabel, response = Chao1, legend=TRUE, data=env2)
+anova(lm(Shan ~ factor(GroupLabelLabel), data=env2))
+bargraph.CI(x.factor = GroupLabelLabel, response = Shan, legend=TRUE, data=env2)
+anova(lm(PD ~ factor(GroupLabelLabel), data=env2))
+bargraph.CI(x.factor = GroupLabelLabel, response = PD, legend=TRUE, data=env2)
 # all metrics ***
-summary(aov(env2[,25] ~ env2$Group))
-cld(lsmeans(aov(env2[,25] ~ Group, data= env2), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env2[,28] ~ env2$GroupLabelLabel))
+cld(lsmeans(aov(env2[,28] ~ GroupLabelLabel, data= env2), ~ GroupLabelLabel, Letters = letters, adjust = "tukey"))
 
-# Q3: Is the MB sig dif in Pups with dif cross foster models?
-anova(lm(Sobs ~ factor(Group), data=env3))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env3)
-anova(lm(Chao1 ~ factor(Group), data=env3))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env3)
-anova(lm(Shan ~ factor(Group), data=env3))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env3)
-anova(lm(PD ~ factor(Group), data=env3))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env3)
+# Q3: Is the MB* sig. diff. between WT female (TM-1) and Het.* Sgp130 pups (TM-1) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabelLabel), data=env3))
+bargraph.CI(x.factor = GroupLabelLabel, response = Sobs, legend=TRUE, data=env3)
+anova(lm(Chao1 ~ factor(GroupLabelLabel), data=env3))
+bargraph.CI(x.factor = GroupLabelLabel, response = Chao1, legend=TRUE, data=env3)
+anova(lm(Shan ~ factor(GroupLabelLabel), data=env3))
+bargraph.CI(x.factor = GroupLabelLabel, response = Shan, legend=TRUE, data=env3)
+anova(lm(PD ~ factor(GroupLabelLabel), data=env3))
+bargraph.CI(x.factor = GroupLabelLabel, response = PD, legend=TRUE, data=env3)
 # all metrics ***
-summary(aov(env3[,25] ~ env3$Group))
-cld(lsmeans(aov(env3[,25] ~ Group, data= env3), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env3[,28] ~ env3$GroupLabelLabel))
+cld(lsmeans(aov(env3[,28] ~ GroupLabelLabel, data= env3), ~ GroupLabelLabel, Letters = letters, adjust = "tukey"))
 
-# Q4: Is the MB sig dif in Pups with dif fmt models?
-anova(lm(Sobs ~ factor(Group), data=env4))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env4)
-anova(lm(Chao1 ~ factor(Group), data=env4))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env4)
-anova(lm(Shan ~ factor(Group), data=env4))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env4)
-anova(lm(PD ~ factor(Group), data=env4))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env4)
+# Q4: Is the MB* sig. diff. between Sgp130 female (TM-2)and Homo. Sgp130 pups (TM-2) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabel), data=env4))
+bargraph.CI(x.factor = GroupLabel, response = Sobs, legend=TRUE, data=env4)
+anova(lm(Chao1 ~ factor(GroupLabel), data=env4))
+bargraph.CI(x.factor = GroupLabel, response = Chao1, legend=TRUE, data=env4)
+anova(lm(Shan ~ factor(GroupLabel), data=env4))
+bargraph.CI(x.factor = GroupLabel, response = Shan, legend=TRUE, data=env4)
+anova(lm(PD ~ factor(GroupLabel), data=env4))
+bargraph.CI(x.factor = GroupLabel, response = PD, legend=TRUE, data=env4)
 # Sobs ***, rest *
-summary(aov(env4[,25] ~ env4$Group))
-cld(lsmeans(aov(env4[,25] ~ Group, data= env4), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env4[,28] ~ env4$GroupLabel))
+cld(lsmeans(aov(env4[,28] ~ GroupLabel, data= env4), ~ GroupLabel, Letters = letters, adjust = "tukey"))
 
-# Q5: Is the MB sig dif in hz/Sgp130FC Pups?
-anova(lm(Sobs ~ factor(Group), data=env5))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env5)
-anova(lm(Chao1 ~ factor(Group), data=env5))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env5)
-anova(lm(Shan ~ factor(Group), data=env5))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env5)
-anova(lm(PD ~ factor(Group), data=env5))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env5)
+# Q5: Is the MB* sig. diff. between Het. Sgp130 pups (TM-1) and Homo. Sgp130 pups (TM-2) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabel), data=env5))
+bargraph.CI(x.factor = GroupLabel, response = Sobs, legend=TRUE, data=env5)
+anova(lm(Chao1 ~ factor(GroupLabel), data=env5))
+bargraph.CI(x.factor = GroupLabel, response = Chao1, legend=TRUE, data=env5)
+anova(lm(Shan ~ factor(GroupLabel), data=env5))
+bargraph.CI(x.factor = GroupLabel, response = Shan, legend=TRUE, data=env5)
+anova(lm(PD ~ factor(GroupLabel), data=env5))
+bargraph.CI(x.factor = GroupLabel, response = PD, legend=TRUE, data=env5)
 # all metrics ***
-summary(aov(env5[,25] ~ env5$Group))
-cld(lsmeans(aov(env5[,25] ~ Group, data= env5), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env5[,28] ~ env5$GroupLabel))
+cld(lsmeans(aov(env5[,28] ~ GroupLabel, data= env5), ~ GroupLabel, Letters = letters, adjust = "tukey"))
 
-# Q6: Is the MB sig dif in all Pups with CFD Mums?
-anova(lm(Sobs ~ factor(Group), data=env6))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env6)
-anova(lm(Chao1 ~ factor(Group), data=env6))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env6)
-anova(lm(Shan ~ factor(Group), data=env6))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env6)
-anova(lm(PD ~ factor(Group), data=env6))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env6)
+# Q6: Is the MB* sig. diff. between WT pups (Historical data) and Het. Sgp130 pups (TM-1) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabel), data=env6))
+bargraph.CI(x.factor = GroupLabel, response = Sobs, legend=TRUE, data=env6)
+anova(lm(Chao1 ~ factor(GroupLabel), data=env6))
+bargraph.CI(x.factor = GroupLabel, response = Chao1, legend=TRUE, data=env6)
+anova(lm(Shan ~ factor(GroupLabel), data=env6))
+bargraph.CI(x.factor = GroupLabel, response = Shan, legend=TRUE, data=env6)
+anova(lm(PD ~ factor(GroupLabel), data=env6))
+bargraph.CI(x.factor = GroupLabel, response = PD, legend=TRUE, data=env6)
 # all metrics ***
-summary(aov(env6[,25] ~ env6$Group))
-cld(lsmeans(aov(env6[,25] ~ Group, data= env6), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env6[,28] ~ env6$GroupLabel))
+cld(lsmeans(aov(env6[,28] ~ GroupLabel, data= env6), ~ GroupLabel, Letters = letters, adjust = "tukey"))
 
-# Q7: Is the MB sig dif in all Pups with HFD Mums?
-anova(lm(Sobs ~ factor(Group), data=env7))
-bargraph.CI(x.factor = Group, response = Sobs, legend=TRUE, data=env7)
-anova(lm(Chao1 ~ factor(Group), data=env7))
-bargraph.CI(x.factor = Group, response = Chao1, legend=TRUE, data=env7)
-anova(lm(Shan ~ factor(Group), data=env7))
-bargraph.CI(x.factor = Group, response = Shan, legend=TRUE, data=env7)
-anova(lm(PD ~ factor(Group), data=env7))
-bargraph.CI(x.factor = Group, response = PD, legend=TRUE, data=env7)
+# Q7: Is the MB* sig. diff. between WT pups (Historical data) and Homo. Sgp130 pups (TM-2) on CFD/HFD ?
+anova(lm(Sobs ~ factor(GroupLabel), data=env7))
+bargraph.CI(x.factor = GroupLabel, response = Sobs, legend=TRUE, data=env7)
+anova(lm(Chao1 ~ factor(GroupLabel), data=env7))
+bargraph.CI(x.factor = GroupLabel, response = Chao1, legend=TRUE, data=env7)
+anova(lm(Shan ~ factor(GroupLabel), data=env7))
+bargraph.CI(x.factor = GroupLabel, response = Shan, legend=TRUE, data=env7)
+anova(lm(PD ~ factor(GroupLabel), data=env7))
+bargraph.CI(x.factor = GroupLabel, response = PD, legend=TRUE, data=env7)
 # all metrics ***
-summary(aov(env7[,25] ~ env7$Group))
-cld(lsmeans(aov(env7[,25] ~ Group, data= env7), ~ Group, Letters = letters, adjust = "tukey"))
+summary(aov(env7[,28] ~ env7$GroupLabel))
+cld(lsmeans(aov(env7[,28] ~ GroupLabel, data= env7), ~ GroupLabel, Letters = letters, adjust = "tukey"))
 
+# Q8: Is the MB* sig. diff. between WT Mum on CFD/HFD at E0 ?
+
+# Q9: Is the MB* sig. diff. between WT Mum on CFD/HFD at E17 ?
+
+# Q10: Is the MB* sig. diff. between WT pups on CFD/HFD at PND3 ?
+
+# Q11: Is the MB* sig. diff. between WT pups on CFD/HFD at PND7 ?
+
+# Q12: Is the MB sig dif in Pups with dif cross foster models?
+
+# Q13: Is the MB sig dif in Pups with dif fmt models?
 
 
 ## Additional analyses
 
 
-for(i in colnames(env.all[,23:26])) {
+for(i in colnames(env.all[,26:29])) {
   print(i)
-  print(summary(aov(env.all[,i] ~ env.all$Group)))
+  print(summary(aov(env.all[,i] ~ env.all$GroupLabel)))
 }
 
-for(i in colnames(env.all[,23:26])) {
+for(i in colnames(env.all[,26:29])) {
   print(i)
-  print(cld(lsmeans(aov(env.all[,i] ~ Group, data= env.all), 
-                    ~ Group, 
+  print(cld(lsmeans(aov(env.all[,i] ~ GroupLabel, data= env.all), 
+                    ~ GroupLabel, 
                     Letters = letters, 
                     adjust = "tukey")))
 }
